@@ -50,8 +50,46 @@ public class SpellingBee {
 
     // TODO: Apply mergesort to sort all words. Do this by calling ANOTHER method
     //  that will find the substrings recursively.
-    public void sort() {
+    public ArrayList<String> sort(ArrayList<String> words) {
         // YOUR CODE HERE
+        ArrayList<String> arr1;
+        ArrayList<String> arr2;
+        if (words.size() == 1) {
+            return words;
+        } else {
+            int left = 0;
+            int mid = words.size() / 2;
+            int right = words.size() - 1;
+            ArrayList<String> leftHalf = new ArrayList<>();
+            for (int i = left; i < mid; i++) {
+                leftHalf.add(words.get(i));
+            }
+            ArrayList<String> rightHalf = new ArrayList<>();
+            for (int i = right; i < mid; i++) {
+                rightHalf.add(words.get(i));
+            }
+            arr1 = sort(leftHalf);
+            arr2 = sort(rightHalf);
+            return mergeSort(arr1, arr2);
+
+        }
+    }
+    public ArrayList<String> mergeSort(ArrayList<String> arr1, ArrayList<String> arr2)
+    {
+        if(arr2.size() > arr1.size())
+        {
+            for(int i = 0; i < arr1.size();i++)
+            {
+
+            }
+        }
+        else
+        {
+            for(int i = 0; i < arr1.size();i++)
+            {
+
+            }
+        }
     }
 
     // Removes duplicates from the sorted list.
@@ -70,8 +108,23 @@ public class SpellingBee {
     //  If it is not in the dictionary, remove it from words.
     public void checkWords() {
         // YOUR CODE HERE
+        for(int i = 0; i < words.size(); i++)
+        {
+            if(binarySearch(words.get(i), i, DICTIONARY_SIZE - 1) == false)
+            {
+
+            }
+        }
     }
 
+    public boolean binarySearch(String target, int left,int right)
+    {
+
+        if(left == right)
+        {
+            return false;
+        }
+    }
     // Prints all valid words to wordList.txt
     public void printWords() throws IOException {
         File wordFile = new File("Resources/wordList.txt");
